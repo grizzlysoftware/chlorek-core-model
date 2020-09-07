@@ -28,6 +28,7 @@ public class Product implements Taggable, SpecialItem, Container {
     public Number minMargin;
     public Number flatMargin;
     public boolean isDeleted;
+    public boolean isDiscountAllowed;
     public ContainerType containerType;
     private Collection<Tag> tags;
 
