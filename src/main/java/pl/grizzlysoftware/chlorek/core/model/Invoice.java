@@ -12,6 +12,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 public class Invoice {
     public String number;
+    public BigDecimal netValue;
     public BigDecimal grossValue;
     public boolean isPaid;
     public LocalDate issuedAt;
