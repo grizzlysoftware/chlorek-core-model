@@ -12,7 +12,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-@EqualsAndHashCode(exclude = "tags")
+@EqualsAndHashCode
 public class Product implements Taggable, SpecialItem, Container {
     public Long id;
     public String name;
