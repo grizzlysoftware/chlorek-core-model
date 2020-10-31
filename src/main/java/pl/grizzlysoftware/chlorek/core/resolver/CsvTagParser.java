@@ -24,12 +24,17 @@ public class CsvTagParser implements TagParser {
             return NullTag.INSTANCE;
         }
         var parts = tag.split(separator);
-        if (parts.length < 1) {
+        var output = resolve(parts);
+        return output;
+    }
+
+    protected Tag resolve(String[] csvParts) {
+        if (csvParts.length < 1) {
             return NullTag.INSTANCE;
-        } else if (parts.length == 1) {
-            return new KeyValueTag(parts[0]);
+        } else if (csvParts.length == 1) {
+            return new KeyValueTag(csvParts[0]);
         } else {
-            return new KeyValueTag(parts[0], parts[1]); //TODO implement resolver
+            return new KeyValueTag(csvParts[0], csvParts[1]);
         }
     }
 }
