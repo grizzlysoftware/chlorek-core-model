@@ -27,12 +27,12 @@ public class SpecialItemImpl implements SpecialItem {
         if (isBlank(tag)) {
             return;
         }
-        tags.add(new Tag(tag));
+        tags.add(new DefaultTag(tag));
     }
 
     @Override
     public void removeTag(String tag) {
-        tags.removeIf(e -> e.name.equals(tag));
+        tags.removeIf(e -> e.name().equals(tag));
     }
 
     @Override

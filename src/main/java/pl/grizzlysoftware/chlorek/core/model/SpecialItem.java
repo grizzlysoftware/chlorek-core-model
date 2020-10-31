@@ -12,9 +12,6 @@ public interface SpecialItem extends Taggable {
         return getTags()
                 .stream()
                 .filter(Objects::nonNull)
-                .map(e -> e.name)
-                .filter(e -> e.startsWith(SPECIAL_ITEM_TAG_PREFIX))
-                .findAny()
-                .isPresent();
+                .anyMatch(e -> e.name().startsWith(SPECIAL_ITEM_TAG_PREFIX));
     }
 }

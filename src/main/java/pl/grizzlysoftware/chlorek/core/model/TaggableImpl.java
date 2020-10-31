@@ -18,7 +18,7 @@ public class TaggableImpl implements Taggable, Container {
     public TaggableImpl(Collection<String> tags) {
         this.tags = tags
                 .stream()
-                .map(e -> new Tag(e))
+                .map(DefaultTag::new)
                 .collect(toList());
     }
 
@@ -33,12 +33,12 @@ public class TaggableImpl implements Taggable, Container {
 
     @Override
     public void addTag(String tag) {
-        tags.add(new Tag(tag));
+        tags.add(new DefaultTag(tag));
     }
 
     @Override
     public void removeTag(String tag) {
-        tags.removeIf(e -> StringUtils.equals(e.name, tag));
+        tags.removeIf(e -> StringUtils.equals(e.name(), tag));
     }
 
     @Override

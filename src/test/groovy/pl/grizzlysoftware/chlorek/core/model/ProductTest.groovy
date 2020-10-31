@@ -3,8 +3,6 @@ package pl.grizzlysoftware.chlorek.core.model
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static org.apache.commons.collections4.CollectionUtils.isEqualCollection
-
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
@@ -29,7 +27,7 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(null as Tag)
+            product.addTag(null as DefaultTag)
         then:
             product.getTags().isEmpty()
     }
@@ -38,7 +36,7 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(new Tag("tag"))
+            product.addTag(new DefaultTag("tag"))
         then:
             product.getTags().size() == 1
     }
@@ -47,9 +45,9 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(new Tag("tag"))
-            product.addTag(new Tag("tag"))
-            product.addTag(new Tag("tag"))
+            product.addTag(new DefaultTag("tag"))
+            product.addTag(new DefaultTag("tag"))
+            product.addTag(new DefaultTag("tag"))
         then:
             product.getTags().size() == 1
     }
@@ -77,7 +75,7 @@ class ProductTest extends Specification {
     def "removes tag"(tag) {
         given:
             def product = new Product()
-            product.tags = [new Tag("tag1"), new Tag("tag2"), new Tag("tag3")]
+            product.tags = [new DefaultTag("tag1"), new DefaultTag("tag2"), new DefaultTag("tag3")]
         when:
             product.removeTag(tag)
         then:

@@ -19,9 +19,7 @@ public interface Taggable {
     default boolean hasTag(String tag) {
         return getTags()
                 .stream()
-                .filter(withName(tag))
-                .findAny()
-                .isPresent();
+                .anyMatch(withName(tag));
     }
 
     Collection<Tag> getTags();
@@ -35,6 +33,6 @@ public interface Taggable {
     }
 
     static Predicate<Tag> withName(String name) {
-        return e -> StringUtils.equals(e.name, name);
+        return e -> StringUtils.equals(e.name(), name);
     }
 }

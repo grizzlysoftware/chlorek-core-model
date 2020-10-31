@@ -6,11 +6,11 @@ import spock.lang.Unroll
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-class TagTest extends Specification {
+class DefaultTagTest extends Specification {
     @Unroll
     def "constructor throws IllegalArgumentException when given tag name is null or blank #0"(name) {
         when:
-            new Tag(name, null)
+            new DefaultTag(name, null)
         then:
             thrown(IllegalArgumentException)
         where:
@@ -20,7 +20,7 @@ class TagTest extends Specification {
     @Unroll
     def "constructor throws IllegalArgumentException when given tag name is null or blank #1"(name) {
         when:
-            new Tag(name)
+            new DefaultTag(name)
         then:
             thrown(IllegalArgumentException)
         where:

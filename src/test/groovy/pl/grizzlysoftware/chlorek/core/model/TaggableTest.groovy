@@ -11,7 +11,7 @@ class TaggableTest extends Specification {
     def "returns true if tag exists, false otherwise"(tag, shouldExist) {
         given:
             def m = new TaggableImpl()
-            m.tags = [new Tag("tag0"), new Tag("tag1"), new Tag("tag2"), new Tag("tag3")]
+            m.tags = [new DefaultTag("tag0"), new DefaultTag("tag1"), new DefaultTag("tag2"), new DefaultTag("tag3")]
         when:
             def exists = m.hasTag(tag)
         then:
@@ -30,7 +30,7 @@ class TaggableTest extends Specification {
     def "returns tag by name"(tagName, expectedTagAtPosition) {
         given:
             def m = new TaggableImpl()
-            m.tags = [new Tag("tag0"), new Tag("tag1"), new Tag("tag2"), new Tag("tag3")]
+            m.tags = [new DefaultTag("tag0"), new DefaultTag("tag1"), new DefaultTag("tag2"), new DefaultTag("tag3")]
         when:
             def output = m.getTag(tagName)
         then:
@@ -46,7 +46,7 @@ class TaggableTest extends Specification {
     def "returns NullTag when given tag does not exist"() {
         given:
             def m = new TaggableImpl()
-            m.tags = [new Tag("tag0"), new Tag("tag1"), new Tag("tag2"), new Tag("tag3")]
+            m.tags = [new DefaultTag("tag0"), new DefaultTag("tag1"), new DefaultTag("tag2"), new DefaultTag("tag3")]
         when:
             def output = m.getTag("not existing tag")
         then:
