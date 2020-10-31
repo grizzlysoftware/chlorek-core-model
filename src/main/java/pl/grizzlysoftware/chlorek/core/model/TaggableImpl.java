@@ -18,7 +18,7 @@ public class TaggableImpl implements Taggable, Container {
     public TaggableImpl(Collection<String> tags) {
         this.tags = tags
                 .stream()
-                .map(DefaultTag::new)
+                .map(KeyValueTag::new)
                 .collect(toList());
     }
 
@@ -33,7 +33,7 @@ public class TaggableImpl implements Taggable, Container {
 
     @Override
     public void addTag(String tag) {
-        tags.add(new DefaultTag(tag));
+        tags.add(new KeyValueTag(tag));
     }
 
     @Override

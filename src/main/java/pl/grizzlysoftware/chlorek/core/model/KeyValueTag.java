@@ -8,16 +8,16 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 @EqualsAndHashCode(exclude = "value")
-public class DefaultTag implements Tag {
+public class KeyValueTag implements Tag {
     protected final String name;
     protected final String value;
 
-    public DefaultTag(String name, String value) {
+    public KeyValueTag(String name, String value) {
         this.name = requireNonBlank(name);
         this.value = value;
     }
 
-    public DefaultTag(String name) {
+    public KeyValueTag(String name) {
         this(name, null);
     }
 

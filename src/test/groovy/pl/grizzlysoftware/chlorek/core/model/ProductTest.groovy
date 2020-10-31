@@ -27,7 +27,7 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(null as DefaultTag)
+            product.addTag(null as KeyValueTag)
         then:
             product.getTags().isEmpty()
     }
@@ -36,7 +36,7 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(new DefaultTag("tag"))
+            product.addTag(new KeyValueTag("tag"))
         then:
             product.getTags().size() == 1
     }
@@ -45,9 +45,9 @@ class ProductTest extends Specification {
         given:
             def product = new Product()
         when:
-            product.addTag(new DefaultTag("tag"))
-            product.addTag(new DefaultTag("tag"))
-            product.addTag(new DefaultTag("tag"))
+            product.addTag(new KeyValueTag("tag"))
+            product.addTag(new KeyValueTag("tag"))
+            product.addTag(new KeyValueTag("tag"))
         then:
             product.getTags().size() == 1
     }
@@ -75,7 +75,7 @@ class ProductTest extends Specification {
     def "removes tag"(tag) {
         given:
             def product = new Product()
-            product.tags = [new DefaultTag("tag1"), new DefaultTag("tag2"), new DefaultTag("tag3")]
+            product.tags = [new KeyValueTag("tag1"), new KeyValueTag("tag2"), new KeyValueTag("tag3")]
         when:
             product.removeTag(tag)
         then:

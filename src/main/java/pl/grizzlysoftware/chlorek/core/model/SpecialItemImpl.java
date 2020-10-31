@@ -27,7 +27,7 @@ public class SpecialItemImpl implements SpecialItem {
         if (isBlank(tag)) {
             return;
         }
-        tags.add(new DefaultTag(tag));
+        tags.add(new KeyValueTag(tag));
     }
 
     @Override
