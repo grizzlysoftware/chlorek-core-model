@@ -31,13 +31,7 @@ public class DefaultTag implements Tag {
 
     @Override
     public String toString() {
-        var out = new StringBuilder().append(name);
-        if (value != null) {
-            out
-                    .append(":")
-                    .append(value);
-        }
-        return out.toString();
+        return stringify();
     }
 
     @Override
