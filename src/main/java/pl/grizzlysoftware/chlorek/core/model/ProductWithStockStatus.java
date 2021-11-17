@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class ProductWithStockStatus extends Product {
     public Integer lastInventoryValue;
-    public Integer stockQuantity;
+    public BigDecimal stockQuantity;
     public BigDecimal lastPurchaseNetPrice;
     public Long warehouseId;
 }
