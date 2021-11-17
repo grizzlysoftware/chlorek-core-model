@@ -19,14 +19,14 @@ public class Product implements Taggable, SpecialItem, Container {
     public String ean;
     public String plu;
     public BigDecimal vat;
-    public Number points;
+    public BigDecimal points;
     public String categoryName;
     public Long categoryId;
-    public Number grossSellPrice;
-    public Number netSellPrice;
-    public Number margin;
-    public Number minMargin;
-    public Number flatMargin;
+    public BigDecimal grossSellPrice;
+    public BigDecimal netSellPrice;
+    public BigDecimal margin;
+    public BigDecimal minMargin;
+    public BigDecimal flatMargin;
     public boolean isDeleted;
     public boolean isDiscountAllowed;
     public ContainerType containerType;
@@ -36,7 +36,7 @@ public class Product implements Taggable, SpecialItem, Container {
         this.tags = initializeTags();
     }
 
-    public Product(String name, String ean, BigDecimal vat, Number grossSellPrice, Number netSellPrice) {
+    public Product(String name, String ean, BigDecimal vat, BigDecimal grossSellPrice, BigDecimal netSellPrice) {
         this.name = name;
         this.ean = ean;
         this.vat = vat;

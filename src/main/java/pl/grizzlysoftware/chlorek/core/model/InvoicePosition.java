@@ -30,12 +30,12 @@ public class InvoicePosition {
     public BigDecimal discountPercent;
 
     /** points granted for this position */
-    public Integer points;
+    public BigDecimal points;
 
     public BigDecimal vat;
     public BigDecimal priceWithoutVat;
     public BigDecimal priceBilledWithoutVat;
 
     /** product count that was sold */
-    public Integer quantity;
+    public BigDecimal quantity;
 }

@@ -7,6 +7,7 @@ import spock.lang.Unroll
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 class NetPriceCalculatorTest extends Specification {
+    @Unroll
     def "returns null for given null args"(netPrice, vat) {
         given:
             def m = new NetPriceCalculator()
@@ -16,8 +17,8 @@ class NetPriceCalculatorTest extends Specification {
             output == null
         where:
             netPrice | vat
-            null     | 0
-            0        | null
+            null     | 0.0
+            0.0      | null
             null     | null
     }
 
@@ -25,7 +26,7 @@ class NetPriceCalculatorTest extends Specification {
         given:
             def m = new NetPriceCalculator()
         when:
-            m.apply(5, -1)
+            m.apply(5.0, -1.0)
         then:
             thrown(IllegalArgumentException)
     }
@@ -34,7 +35,7 @@ class NetPriceCalculatorTest extends Specification {
         given:
             def m = new NetPriceCalculator()
         when:
-            m.apply(5, 5)
+            m.apply(5.0, 5.0)
         then:
             thrown(IllegalArgumentException)
     }
