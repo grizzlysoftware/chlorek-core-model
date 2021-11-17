@@ -9,6 +9,7 @@ import java.util.Collection;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 public interface EmployeeProvider {
+    Employee getEmployeeById(Long id);
     Collection<Employee> getEmployees();
     Collection<Shift> getShifts(Long branchId, int limit, int offset);
 }

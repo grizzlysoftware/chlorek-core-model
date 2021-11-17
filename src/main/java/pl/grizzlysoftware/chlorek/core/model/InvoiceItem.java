@@ -17,5 +17,5 @@ public class InvoiceItem {
     public BigDecimal grossSellPrice;
     public BigDecimal netPurchaseTotalPrice;
     public BigDecimal currentGrossSellPrice;
-    public Double quantity;
+    public BigDecimal quantity;
 }
