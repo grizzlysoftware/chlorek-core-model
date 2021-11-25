@@ -3,12 +3,15 @@ package pl.grizzlysoftware.chlorek.core.model;
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public class Supplier {
+public class Supplier extends Updatable {
     public Long id;
     public Integer cloudId;
     public Long companyId;
     public String externalId;
-    public String vatId; /** wtf is that, it seems to be some sort of name, not id */
+    public String vatId;
+    /**
+     * wtf is that, it seems to be some sort of name, not id
+     */
     public String name;
 
     public String phone;

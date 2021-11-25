@@ -13,7 +13,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
 @EqualsAndHashCode
-public class Product implements Taggable, SpecialItem, Container {
+public class Product extends Updatable  implements Taggable, SpecialItem, Container {
     public Long id;
     public String name;
     public String ean;

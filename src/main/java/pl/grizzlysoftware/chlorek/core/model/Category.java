@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * @author Bartosz Pawłowski, bpawlowski@grizzlysoftware.pl
  */
-public class Category {
+public class Category extends Updatable {
     public Long id;
     public Integer cloudId;
     public boolean isDeleted;
