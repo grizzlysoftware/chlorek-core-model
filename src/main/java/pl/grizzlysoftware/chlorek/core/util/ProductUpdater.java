@@ -9,19 +9,18 @@ import pl.grizzlysoftware.commons.ConcurrentUtils;
 
 import java.util.function.Consumer;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 
 @Slf4j
 public class ProductUpdater implements Consumer<Product> {
     private ProductService productService;
-    private UpdatedAtTagApplier updatedAtTagApplier;
     private HashTagApplier hashTagApplier;
     private long updateDelay;
 
     public ProductUpdater(ProductService productService, long updateDelay) {
         this.productService = requireNonNull(productService);
         this.updateDelay = updateDelay;
-        this.updatedAtTagApplier = new UpdatedAtTagApplier();
         this.hashTagApplier = new HashTagApplier();
     }
 
@@ -31,15 +30,19 @@ public class ProductUpdater implements Consumer<Product> {
 
     private ProductUpdater() {
         //for tests purpose
-        this.updatedAtTagApplier = new UpdatedAtTagApplier();
         this.hashTagApplier = new HashTagApplier();
     }
 
     @Override
     public void accept(Product product) {
         try {
-            updatedAtTagApplier.accept(product);
             hashTagApplier.accept(product);
+
+            if (!isNull(product.id)) {
+                final var p = productService.getProduct(product.id);
+                product.etag = p.etag;
+            }
+
             productService.updateProduct(product);
             ConcurrentUtils.sleepSilently(updateDelay);
         } catch (Exception e) {

@@ -29,16 +29,6 @@ class ProductUpdaterTest extends Specification {
             1 * m.productService.updateProduct(_)
     }
 
-    def "invokes UpdatedAtTagApplier"() {
-        given:
-            def m = new ProductUpdater()
-            m.updatedAtTagApplier = Mock(UpdatedAtTagApplier)
-        when:
-            m.accept(new Product())
-        then:
-            1 * m.updatedAtTagApplier.accept(_)
-    }
-
     def "invokes HashTagApplier"() {
         given:
             def m = new ProductUpdater()
